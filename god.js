@@ -8,17 +8,17 @@ function padLeadingZeros(num, size) {
     return s;
 }
 
-/*fs.appendFile('god', "hee", function (err) {
+fs.appendFile('god', "hee", function (err) {
     if (err) throw err;
     //res.send(yearlist)
-});*/
+});
 
 async function get_request() {
     let year = 2533;
     let preyearlist = [];
     let preyearsuperlist = [];
     let yearlist = [];
-    let nextyear = 2564;
+    let nextyear = new Date().getFullYear() + 543;
     let channel = [];
     //let jdata
     let countloveme = 0
