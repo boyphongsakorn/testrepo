@@ -18,7 +18,7 @@ async function get_request() {
     let preyearlist = [];
     let preyearsuperlist = [];
     let yearlist = [];
-    let nextyear = new Date().getFullYear() + 543;
+    let nextyear = 2564;
     let channel = [];
     //let jdata
     let countloveme = 0
