@@ -50,9 +50,11 @@ jobs:
       - run: npm install
       #- run: npm test
       #- run: npm run index
-      - run: npm god
+      #- run: npm god
+
+      - run: node god.js
       
-      - run: echo hello > test
+      #- run: echo hello > test
 
       - name: Commit files
         run: |
