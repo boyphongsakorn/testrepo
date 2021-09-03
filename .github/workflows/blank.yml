@@ -39,9 +39,11 @@ jobs:
       #  run: |
       #      ...
       
-      - run: mkdir -p path/to/artifact
+      #- run: mkdir -p path/to/artifact
 
-      - run: echo hello > path/to/artifact/world.txt
+      #- run: echo hello > path/to/artifact/world.txt
+      
+      - run: echo hello > test
 
       - name: Commit files
         run: |
