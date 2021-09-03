@@ -42,6 +42,15 @@ jobs:
       #- run: mkdir -p path/to/artifact
 
       #- run: echo hello > path/to/artifact/world.txt
+
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: npm install
+      #- run: npm test
+      #- run: npm run index
+      - run: npm run god
       
       - run: echo hello > test
 
