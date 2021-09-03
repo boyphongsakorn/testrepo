@@ -50,7 +50,7 @@ jobs:
       - run: npm install
       #- run: npm test
       #- run: npm run index
-      - run: npm run god
+      - run: npm god
       
       - run: echo hello > test
 
