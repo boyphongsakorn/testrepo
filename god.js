@@ -115,6 +115,6 @@ async function get_request() {
     });*/
     fs.appendFile('/home/runner/work/testrepo/testrepo/god', JSON.stringify(yearlist), function (err) {
         if (err) throw err;
-        res.send(yearlist)
+        //res.send(yearlist)
     });
 }
