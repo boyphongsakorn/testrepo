@@ -35,9 +35,14 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-      - name: Create local changes
-        run: |
-            ...
+      #- name: Create local changes
+      #  run: |
+      #      ...
+      
+      - run: mkdir -p path/to/artifact
+
+      - run: echo hello > path/to/artifact/world.txt
+
       - name: Commit files
         run: |
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
