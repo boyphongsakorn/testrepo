@@ -54,12 +54,12 @@ async function get_request() {
             if (ayear > nextyear) {
                 break
             }
-            //await fetch('https://www.myhora.com/%E0%B8%AB%E0%B8%A7%E0%B8%A2/%E0%B8%9B%E0%B8%B5-' + ayear + '.aspx')
-            //    .then(res => res.text())
-            //    .then((body) => {
-            const url = 'https://www.myhora.com/%E0%B8%AB%E0%B8%A7%E0%B8%A2/%E0%B8%9B%E0%B8%B5-' + ayear + '.aspx';
+            await fetch('https://www.myhora.com/%E0%B8%AB%E0%B8%A7%E0%B8%A2/%E0%B8%9B%E0%B8%B5-' + ayear + '.aspx')
+                .then(res => res.text())
+                .then((body) => {
+            /*const url = 'https://www.myhora.com/%E0%B8%AB%E0%B8%A7%E0%B8%A2/%E0%B8%9B%E0%B8%B5-' + ayear + '.aspx';
             const res = await fetch(url);
-            const body = await res.text();
+            const body = await res.text();*/
             var $ = cheerio.load(body);
             for (const val of $('font').toArray()) {
                 if (val.firstChild.data.indexOf('ตรวจสลากกินแบ่งรัฐบาล') > -1) {
@@ -100,7 +100,7 @@ async function get_request() {
                     if (err) throw err;
                 });*/
             }
-            //})
+            })
         }
         year += 10
     }
