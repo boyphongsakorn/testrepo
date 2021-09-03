@@ -20,7 +20,7 @@ async function get_request() {
     var fileContents = null;
     try {
         //fileContents = fs.readFileSync('tmp/cache.txt');
-        fileContents = fs.readFileSync('god');
+        fileContents = fs.readFileSync('/home/runner/work/testrepo/testrepo/god');
     } catch (err) {
     }
     if (fileContents) {
@@ -108,7 +108,7 @@ async function get_request() {
         if (err) throw err;
         res.send(yearlist)
     });*/
-    fs.appendFile('god.txt', JSON.stringify(yearlist), function (err) {
+    fs.appendFile('/home/runner/work/testrepo/testrepo/god', JSON.stringify(yearlist), function (err) {
         if (err) throw err;
         res.send(yearlist)
     });
