@@ -8,10 +8,10 @@ function padLeadingZeros(num, size) {
     return s;
 }
 
-fs.appendFile('god', "hee", function (err) {
+/*fs.appendFile('god', "hee", function (err) {
     if (err) throw err;
     //res.send(yearlist)
-});
+});*/
 
 async function get_request() {
     let year = 2533;
@@ -118,3 +118,5 @@ async function get_request() {
         //res.send(yearlist)
     });
 }
+
+get_request()
