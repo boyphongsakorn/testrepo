@@ -8,6 +8,7 @@ function padLeadingZeros(num, size) {
     return s;
 }
 
+async function start() {
 let year = 2533;
 let preyearlist = [];
 let preyearsuperlist = [];
@@ -108,3 +109,4 @@ fs.writeFile('god', JSON.stringify(yearlist), function (err) {
     if (err) throw err;
     res.send(yearlist)
 });
+}
