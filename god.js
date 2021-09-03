@@ -109,7 +109,7 @@ year += 10
     res.send(yearlist)
 });*/
 
-async function get_request() {
+/*async function get_request() {
     let year = 2533;
     let preyearlist = [];
     let preyearsuperlist = [];
@@ -158,7 +158,7 @@ async function get_request() {
             //await fetch('https://www.myhora.com/%E0%B8%AB%E0%B8%A7%E0%B8%A2/%E0%B8%9B%E0%B8%B5-' + ayear + '.aspx')
             //    .then(res => res.text())
             //    .then((body) => {
-            const url = 'https://www.myhora.com/%E0%B8%AB%E0%B8%A7%E0%B8%A2/%E0%B8%9B%E0%B8%B5-' + ayear + '.aspx'
+            const url = 'https://www.myhora.com/%E0%B8%AB%E0%B8%A7%E0%B8%A2/%E0%B8%9B%E0%B8%B5-' + ayear + '.aspx';
             const res = await fetch(url);
             const body = await res.text();
             var $ = cheerio.load(body);
@@ -200,7 +200,7 @@ async function get_request() {
                 fs.writeFile('tmp/' + day[3] + '.txt', JSON.stringify(preyearlist), function (err) {
                     if (err) throw err;
                 });*/
-            }
+            /*}
             //})
         }
         year += 10
@@ -209,8 +209,19 @@ async function get_request() {
         if (err) throw err;
         res.send(yearlist)
     });*/
-    fs.writeFile('god', JSON.stringify(yearlist), function (err) {
+    /*fs.writeFile('god', JSON.stringify(yearlist), function (err) {
         if (err) throw err;
         res.send(yearlist)
     });
-}
+}*/
+
+async function fetchMoviesJSON() {
+    const response = await fetch('http://api.plos.org/search?q=title:DNA');
+    const movies = await response.json();
+    return movies;
+  }
+  
+  fetchMoviesJSON().then(movies => {
+    //movies; // fetched movies
+    console.log(movies)
+  });
