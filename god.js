@@ -108,7 +108,7 @@ async function get_request() {
         if (err) throw err;
         res.send(yearlist)
     });*/
-    fs.writeFile('god.txt', JSON.stringify(yearlist), function (err) {
+    fs.appendFile('god.txt', JSON.stringify(yearlist), function (err) {
         if (err) throw err;
         res.send(yearlist)
     });
