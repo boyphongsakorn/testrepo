@@ -10,7 +10,7 @@ function padLeadingZeros(num, size) {
 
 fs.appendFile('god', "hee", function (err) {
     if (err) throw err;
-    res.send(yearlist)
+    //res.send(yearlist)
 });
 
 async function get_request() {
