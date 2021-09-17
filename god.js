@@ -115,3 +115,43 @@ async function get_request() {
 }
 
 get_request()
+
+async function get_zero() {
+    let channels
+    let allwin = []
+    var fileContents = null;
+    try {
+        //fileContents = fs.readFileSync('tmp/cache.txt');
+        fileContents = fs.readFileSync('god');
+    } catch (err) {
+    }
+    if (fileContents) {
+        yearlist = JSON.parse(fileContents);
+        channels = yearlist.splice(408)
+    }
+    /*await fetch('http://localhost:' + port + '/god')
+        .then(res => res.json())
+        .then((body) => {
+            channels = body.splice(408)
+        })*/
+    for (const val of channels) {
+        //console.log(val)
+        await fetch('https://lottsanook.vercel.app/api/index' + val + '&from')
+            .then(res => res.json())
+            .then((body) => {
+                for (let index = 0; index < body.length; index++) {
+                    const element = body[index];
+                    if (element.includes('070935')) {
+                        allwin.push(body[0][0])
+                    }
+                }
+
+            })
+    }
+    fs.writeFile('070935', JSON.stringify(allwin), function (err) {
+        if (err) throw err;
+        //res.send(yearlist)
+    });
+}
+
+get_zero()
