@@ -149,7 +149,7 @@ async function get_zero() {
             .then((body) => {
                 for (let index = 0; index < body.length; index++) {
                     const element = body[index];
-                    if (element.includes('070935')) {
+                    if (element.includes("070935")) {
                         allwin.push(body[0][0])
                     }
                 }
