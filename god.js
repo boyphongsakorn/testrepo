@@ -136,7 +136,15 @@ async function get_zero() {
         })*/
     for (const val of channels) {
         //console.log(val)
-        await fetch('https://lottsanook.vercel.app/api/?date=' + val + '&from')
+        await fetch('https://thai-lottery1.p.rapidapi.com/?date=' + val + '&from', {
+            headers: {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "thai-lottery1.p.rapidapi.com",
+                    "x-rapidapi-key": "c34ed3c573mshbdf38eb6814e7a7p1e0eedjsnab10f5aef137"
+                }
+            }
+        })
             .then(res => res.json())
             .then((body) => {
                 for (let index = 0; index < body.length; index++) {
