@@ -148,13 +148,13 @@ async function get_zero() {
         .then((body) => {
             for (let index = 0; index < body.length; index++) {
                 const element = body[index];
-                if (element.indexOf("070935") >= 0) {
+                if (element.indexOf("21") >= 0) {
                     allwin.push(body[0][0])
                 }
             }
         });
     }
-    fs.writeFile('070935', JSON.stringify(allwin), function (err) {
+    fs.writeFile('21', JSON.stringify(allwin), function (err) {
         if (err) throw err;
         //res.send(yearlist)
     });
