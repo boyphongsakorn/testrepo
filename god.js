@@ -127,7 +127,7 @@ async function get_zero() {
     }
     if (fileContents) {
         yearlist = JSON.parse(fileContents);
-        channels = yearlist.splice(408)
+        channels = yearlist.splice(408);
     }
     /*await fetch('http://localhost:' + port + '/god')
         .then(res => res.json())
@@ -136,7 +136,7 @@ async function get_zero() {
         })*/
     for (const val of channels) {
         //console.log(val)
-        await fetch('https://lottsanook.vercel.app/api/index' + val + '&from')
+        await fetch('https://lottsanook.vercel.app/api/?date=' + val + '&from')
             .then(res => res.json())
             .then((body) => {
                 for (let index = 0; index < body.length; index++) {
