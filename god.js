@@ -134,29 +134,32 @@ async function get_zero() {
         .then((body) => {
             channels = body.splice(408)
         })*/
-    for (const val of channels) {
-        //console.log(val)
-        await fetch('https://thai-lottery1.p.rapidapi.com/?date=' + val + '&from=true', {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "thai-lottery1.p.rapidapi.com",
-                "x-rapidapi-key": "c34ed3c573mshbdf38eb6814e7a7p1e0eedjsnab10f5aef137"
-            }
-        })
-        .then(res => res.json())
-        .then((body) => {
-            for (let index = 0; index < body.length; index++) {
-                const element = body[index];
-                if (element.indexOf("070935") >= 0) {
-                    allwin.push(body[0][0])
+    for (let snum = 0; snum < 100; snum++) {
+        for (const val of channels) {
+            //console.log(val)
+            await fetch('https://thai-lottery1.p.rapidapi.com/?date=' + val + '&from=true', {
+                "method": "GET",
+                "headers": {
+                    "x-rapidapi-host": "thai-lottery1.p.rapidapi.com",
+                    "x-rapidapi-key": "c34ed3c573mshbdf38eb6814e7a7p1e0eedjsnab10f5aef137"
                 }
-            }
+            })
+                .then(res => res.json())
+                .then((body) => {
+                    for (let index = 0; index < body.length; index++) {
+                        const element = body[index];
+                        if (element.indexOf(padLeadingZeros(snum, 6)) >= 0) {
+                            allwin.push(body[0][0])
+                        }
+                    }
+                });
+        }
+        fs.writeFile('070935', JSON.stringify(allwin), function (err) {
+            if (err) throw err;
+            //res.send(yearlist)
         });
     }
-    fs.writeFile('070935', JSON.stringify(allwin), function (err) {
-        if (err) throw err;
-        //res.send(yearlist)
-    });
+
 }
 
 get_zero()
