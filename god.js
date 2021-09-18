@@ -154,7 +154,7 @@ async function get_zero() {
                     }
                 });
         }
-        fs.writeFile('070935', JSON.stringify(allwin), function (err) {
+        fs.writeFile(padLeadingZeros(snum, 6), JSON.stringify(allwin), function (err) {
             if (err) throw err;
             //res.send(yearlist)
         });
