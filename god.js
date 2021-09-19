@@ -116,7 +116,7 @@ async function get_request() {
 
 get_request()
 
-async function get_zero() {
+/*async function get_zero() {
     let channels
     let allwin = []
     var fileContents = null;
@@ -133,7 +133,7 @@ async function get_zero() {
         .then(res => res.json())
         .then((body) => {
             channels = body.splice(408)
-        })*/
+        })
     for (let snum = 0; snum < 100; snum++) {
         for (const val of channels) {
             //console.log(val)
@@ -162,4 +162,4 @@ async function get_zero() {
 
 }
 
-get_zero()
+get_zero()*/
