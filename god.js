@@ -167,13 +167,7 @@ get_zero()*/
 async function get_one() {
     for (let snum = 0; snum < 100; snum++) {
 
-        await fetch('https://lotapi.pwisetthon.com/finddol?search=' + padLeadingZeros(snum, 6), {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": "thai-lottery1.p.rapidapi.com",
-                "x-rapidapi-key": "c34ed3c573mshbdf38eb6814e7a7p1e0eedjsnab10f5aef137"
-            }
-        })
+        await fetch('https://lotapi.pwisetthon.com/finddol?search=' + padLeadingZeros(snum, 6), { "method": "GET" })
             .then(res => res.json())
             .then((body) => {
                 fs.writeFile(padLeadingZeros(snum, 6), JSON.stringify(body), function (err) {
