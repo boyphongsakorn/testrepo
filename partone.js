@@ -9,7 +9,7 @@ function padLeadingZeros(num, size) {
 }
 
 async function get_one() {
-    for (let snum = 0; snum < 5000; snum++) {
+    for (let snum = 0; snum < 2500; snum++) {
 
         await fetch('https://lotapi.pwisetthon.com/finddol?search=' + padLeadingZeros(snum, 6), { "method": "GET" })
             .then(res => res.json())
