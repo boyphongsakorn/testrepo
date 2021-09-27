@@ -38,6 +38,9 @@ jobs:
 
       - run: node god.js
       
+      - name: get list date of lottery have a prize part 1
+        run: node partone.js
+      
       #- run: echo hello > test
 
       - run: ls
