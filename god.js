@@ -165,7 +165,7 @@ get_request()
 get_zero()*/
 
 async function get_one() {
-    for (let snum = 0; snum < 1000; snum++) {
+    for (let snum = 0; snum < 10000; snum++) {
 
         await fetch('https://lotapi.pwisetthon.com/finddol?search=' + padLeadingZeros(snum, 6), { "method": "GET" })
             .then(res => res.json())
