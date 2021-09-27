@@ -170,10 +170,12 @@ async function get_one() {
         await fetch('https://lotapi.pwisetthon.com/finddol?search=' + padLeadingZeros(snum, 6), { "method": "GET" })
             .then(res => res.json())
             .then((body) => {
-                fs.writeFile("tmp/"+padLeadingZeros(snum, 6), JSON.stringify(body), function (err) {
-                    if (err) throw err;
-                    //res.send(yearlist)
-                });
+                if (body.length != 0) {
+                    fs.writeFile("tmp/" + padLeadingZeros(snum, 6), JSON.stringify(body), function (err) {
+                        if (err) throw err;
+                        //res.send(yearlist)
+                    });
+                }
             });
     }
 }
