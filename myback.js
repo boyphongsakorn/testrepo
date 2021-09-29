@@ -1,5 +1,4 @@
 const fetch = require('node-fetch');
-const cheerio = require('cheerio')
 var fs = require('fs')
 
 function padLeadingZeros(num, size) {
@@ -9,11 +8,12 @@ function padLeadingZeros(num, size) {
 }
 
 async function get_one() {
-    for (let snum = 10000; snum < 12500; snum++) {
+    for (let snum = 0; snum < 100; snum++) {
 
-        await fetch('https://lotapi.pwisetthon.com/finddol?search=' + padLeadingZeros(snum, 6), { "method": "GET" })
+        await fetch('https://lotapi.pwisetthon.com/finddol?search=' + padLeadingZeros(snum, 6),{method: 'GET'})
             .then(res => res.json())
             .then((body) => {
+                console.log(padLeadingZeros(snum, 6))
                 if (body.length != 0) {
                     fs.writeFile("tmp/" + padLeadingZeros(snum, 6), JSON.stringify(body), function (err) {
                         if (err) throw err;
