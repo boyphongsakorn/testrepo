@@ -16,10 +16,9 @@ on:
   workflow_dispatch:
     inputs:
       number:
-        description: 'Log level'     
+        description: 'check number'     
+        default: '0'
         required: true
-        default: 'warning'
-        type: string
   
   repository_dispatch:
     types:
@@ -28,7 +27,7 @@ on:
   workflow_call:
     inputs:
       number:
-        description: 'A username passed from the caller workflow'
+        description: 'check number'
         default: '0'
         required: true
         type: string
