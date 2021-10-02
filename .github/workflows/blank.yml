@@ -62,6 +62,8 @@ jobs:
 
       - run: node god.js
       
+      - run: node myback.js
+      
       #- run: echo hello > test
 
       - run: ls
