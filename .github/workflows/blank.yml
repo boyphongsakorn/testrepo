@@ -18,6 +18,14 @@ on:
   repository_dispatch:
     types:
       - webhook
+      
+  workflow_call:
+    inputs:
+      number:
+        description: 'A username passed from the caller workflow'
+        default: '0'
+        required: false
+        type: string
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -30,7 +38,7 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - run: |
-          echo "Hello ${{ github.event.inputs.test.test }}!"
+          echo "Hello ${{ inputs.number }}!"
           
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
