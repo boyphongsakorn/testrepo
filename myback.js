@@ -7,8 +7,8 @@ function padLeadingZeros(num, size) {
     return s;
 }
 
-/*async function get_one() {
-    for (let snum = 0; snum < 999999; snum++) {
+async function get_one() {
+    for (let snum = process.env.number; snum <= process.env.number; snum++) {
 
         await fetch('https://lotapi.pwisetthon.com/finddol?search=' + padLeadingZeros(snum, 6),{method: 'GET'})
             .then(res => res.json())
@@ -24,10 +24,10 @@ function padLeadingZeros(num, size) {
     }
 }
 
-get_one()*/
+get_one()
 
-async function get_one() {
-/*let result = ""
+/*async function get_one() {
+let result = ""
     fetch('http://localhost:' + port + '/?date=' + req.query.by)
         .then(res => res.json())
         .then((body) => {
@@ -66,7 +66,7 @@ async function get_one() {
             })
             res.send(result.substring(0, result.length - 1))
         })*/
-    for (let snum = 0; snum < 999999; snum++) {
+    /*for (let snum = 0; snum < 999999; snum++) {
         let channels
         let allwin = []
         await fetch('https://raw.githubusercontent.com/boyphongsakorn/testrepo/main/god')
@@ -97,4 +97,4 @@ async function get_one() {
     }
 }
 
-get_one()
+get_one()*/
