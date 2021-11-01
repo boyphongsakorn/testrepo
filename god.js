@@ -113,7 +113,8 @@ async function get_request() {
         //res.send(yearlist)
     });
 
-    let backupyearlist = yearlist;
+    const fakeyearlist = []
+    const backupyearlist = fakeyearlist.concat(yearlist);
     console.log(backupyearlist)
     
     //yearlist = backupyearlist
