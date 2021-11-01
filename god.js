@@ -112,7 +112,7 @@ async function get_request() {
         if (err) throw err;
         //res.send(yearlist)
     });
-    let backupyearlist = yearlist
+    /*let backupyearlist = yearlist
     backupyearlist.forEach(element => {
         let monthtext
         switch (element.slice(2, 4)) {
@@ -136,7 +136,7 @@ async function get_request() {
     fs.writeFile('godthtext', JSON.stringify(backupyearlist), function (err) {
         if (err) throw err;
         //res.send(yearlist)
-    });
+    });*/
     //yearlist = backupyearlist
     yearlist.forEach(element => {
         let monthtext
