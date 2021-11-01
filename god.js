@@ -156,7 +156,7 @@ async function get_request() {
         }
         yearlist[yearlist.indexOf(element)] = [element,element.slice(0, 2) + " " + monthtext + " " + element.slice(4, 8)]
     });
-    fs.writeFile('godcombothtext', JSON.stringify(backupyearlist), function (err) {
+    fs.writeFile('godcombothtext', JSON.stringify(yearlist), function (err) {
         if (err) throw err;
         //res.send(yearlist)
     });
