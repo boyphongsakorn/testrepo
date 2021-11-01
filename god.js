@@ -112,8 +112,8 @@ async function get_request() {
         if (err) throw err;
         //res.send(yearlist)
     });
-    let backupyearlist = []
-    backupyearlist.concat(yearlist)
+    let backupyearlist = yearlist;
+    console.log(backupyearlist)
     backupyearlist.forEach(element => {
         let monthtext
         switch (element.slice(2, 4)) {
