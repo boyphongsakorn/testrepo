@@ -137,8 +137,8 @@ async function get_request() {
         if (err) throw err;
         //res.send(yearlist)
     });
-    yearlist = backupyearlist
-    yearlist.forEach(element => {
+    //yearlist = backupyearlist
+    backupyearlist.forEach(element => {
         let monthtext
         let array
         switch (element.slice(2, 4)) {
@@ -157,9 +157,9 @@ async function get_request() {
         }
         //element = element.slice(0, 2) + " " + monthtext + " " + element.slice(4, 8)
         //yearlist.indexOf(element)
-        yearlist[yearlist.indexOf(element)] = [element,element.slice(0, 2) + " " + monthtext + " " + element.slice(4, 8)]
+        backupyearlist[backupyearlist.indexOf(element)] = [element,element.slice(0, 2) + " " + monthtext + " " + element.slice(4, 8)]
     });
-    fs.writeFile('godcombothtext', JSON.stringify(yearlist), function (err) {
+    fs.writeFile('godcombothtext', JSON.stringify(backupyearlist), function (err) {
         if (err) throw err;
         //res.send(yearlist)
     });
