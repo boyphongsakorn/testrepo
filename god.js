@@ -31,7 +31,8 @@ async function get_request() {
         ) {
             year = new Date().getFullYear() + 543;
         } else {
-            year = yearlist[yearlist.length - 1].substring(4, 8)
+            //year = yearlist[yearlist.length - 1].substring(4, 8)
+            year = new Date().getFullYear() + 543-1;
         }
         yearlist.forEach(function (value, i) {
             if (
