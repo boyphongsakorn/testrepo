@@ -22,7 +22,9 @@ async function get_one() {
                 }
             });
     }*/
-
+    
+    let channels
+    let allwin = []
     await fetch('https://lotapi.pwisetthon.com/god')
             .then(res => res.json())
             .then((body) => {
