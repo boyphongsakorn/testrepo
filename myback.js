@@ -22,7 +22,7 @@ async function get_one() {
                 }
             });
     }*/
-    
+
     let channels
     let allwin = []
     await fetch('https://lotapi.pwisetthon.com/god')
@@ -38,7 +38,7 @@ async function get_one() {
             .then((body) => {
                 for (let index = 0; index < body.length; index++) {
                     const element = body[index];
-                    if (element.includes(process.env.number.toString())) {
+                    if (element.includes(padLeadingZeros(process.env.number, 6).toString())) {
                         allwin.push(body[0][0])
                         console.log('https://lotapi.pwisetthon.com/?date=' + val + '&from')
                     }
@@ -47,7 +47,7 @@ async function get_one() {
             })
     }
     //res.send(allwin)
-    fs.writeFile("tmp/" + padLeadingZeros(snum, 6), JSON.stringify(allwin), function (err) {
+    fs.writeFile("tmp/" + padLeadingZeros(process.env.number, 6), JSON.stringify(allwin), function (err) {
         if (err) throw err;
         //res.send(yearlist)
     });
