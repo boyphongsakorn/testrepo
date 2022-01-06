@@ -8,7 +8,7 @@ function padLeadingZeros(num, size) {
 }
 
 async function get_one() {
-    for (let snum = process.env.number; snum <= process.env.number; snum++) {
+    /*for (let snum = process.env.number; snum <= process.env.number; snum++) {
 
         await fetch('https://lotapi.pwisetthon.com/finddol?search=' + padLeadingZeros(snum, 6),{method: 'GET'})
             .then(res => res.json())
@@ -21,7 +21,34 @@ async function get_one() {
                     });
                 }
             });
+    }*/
+
+    await fetch('https://lotapi.pwisetthon.com/god')
+            .then(res => res.json())
+            .then((body) => {
+                channels = body.splice(408)
+                console.log(channels)
+            })
+    for (const val of channels) {
+        console.log(val)
+        await fetch('https://lotapi.pwisetthon.com/?date=' + val + '&from')
+            .then(res => res.json())
+            .then((body) => {
+                for (let index = 0; index < body.length; index++) {
+                    const element = body[index];
+                    if (element.includes(process.env.number.toString())) {
+                        allwin.push(body[0][0])
+                        console.log('https://lotapi.pwisetthon.com/?date=' + val + '&from')
+                    }
+                }
+
+            })
     }
+    //res.send(allwin)
+    fs.writeFile("tmp/" + padLeadingZeros(snum, 6), JSON.stringify(allwin), function (err) {
+        if (err) throw err;
+        //res.send(yearlist)
+    });
 }
 
 get_one()
