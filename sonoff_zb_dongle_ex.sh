@@ -7,4 +7,3 @@ wget {{sonoff_zb_dongle_url}}
 unzip {{donglezipfile}}
 cd cc2538-bsl
 ./cc2538-bsl.py -p /dev/ttyUSB0 -e -v -w --bootloader-sonoff-usb ~/{{donglezipfile}}.hex
-docker start $(docker ps -a -q -f "name=zigbee2mqtt")
