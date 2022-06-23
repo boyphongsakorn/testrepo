@@ -25,10 +25,10 @@ const fs = require('fs');
     const sonoff_zb_dongle_ex_new = sonoff_zb_dongle_ex.replace('{{sonoff_zb_dongle_url}}', downloadilnk)
     //replace all {{donglezipfile}} with url2 in sonoff_zb_dongle_ex.sh
     const sonoff_zb_dongle_ex_new2 = sonoff_zb_dongle_ex_new.replace('{{donglezipfile}}', url2)
-    const sonoff_zb_dongle_ex_new3 = sonoff_zb_dongle_ex_new2.replace('{{donglezipfile}}', url2)
+    //const sonoff_zb_dongle_ex_new3 = sonoff_zb_dongle_ex_new2.replace('{{donglezipfile}}', url2)
     //remove .zip from url2
     const url2withoutzip = url2.replace('.zip', '')
-    const sonoff_zb_dongle_ex_new4 = sonoff_zb_dongle_ex_new3.replace('{{donglezipfile}}', url2withoutzip)
+    const sonoff_zb_dongle_ex_new4 = sonoff_zb_dongle_ex_new2.replace('{{donglezipfile}}', url2withoutzip)
     //write sonoff_zb_dongle_ex.sh file
     fs.writeFileSync('sonoff_zb_dongle.sh', sonoff_zb_dongle_ex_new4)
 })()
