@@ -1,3 +1,4 @@
+docker stop $(docker ps -q -f "name=zigbee2mqtt")
 git clone https://github.com/JelmerT/cc2538-bsl.git
 pip3 install pyserial 
 pip3 install intelhex
@@ -6,3 +7,4 @@ wget https://raw.githubusercontent.com/Koenkk/Z-Stack-firmware/master/coordinato
 unzip CC1352P2_CC2652P_launchpad_coordinator_20220219.zip
 cd cc2538-bsl
 ./cc2538-bsl.py -p /dev/ttyUSB0 -e -v -w --bootloader-sonoff-usb ~/CC1352P2_CC2652P_launchpad_coordinator_20220219.hex
+docker start $(docker ps -a -q -f "name=zigbee2mqtt")
