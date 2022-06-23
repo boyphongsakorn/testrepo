@@ -1,3 +1,4 @@
+git clone https://github.com/JelmerT/cc2538-bsl.git
 pip3 install pyserial 
 pip3 install intelhex
 pip3 install python-magic
