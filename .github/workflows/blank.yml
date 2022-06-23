@@ -53,9 +53,11 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: '14'
+          node-version: '16'
           cache: 'npm'
-      - run: npm install
+      
+      - run: npm install -g pnpm
+      - run: pnpm install
       #- run: npm test
       #- run: npm run index
       #- run: npm god
@@ -64,6 +66,8 @@ jobs:
       
       - run: node myback.js
         if: env.number != ''
+
+      - run: node so_zb_de_updatescript.js
       
       #- run: echo hello > test
 

@@ -1,4 +1,4 @@
-const fetch = require('node-fetch')
+const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const cheerio = require('cheerio')
 //const express = require('express')
 var fs = require('fs')

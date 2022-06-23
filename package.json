@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/boyphongsakorn/testrepo#readme",
   "dependencies": {
-    "cheerio": "^1.0.0-rc.10",
-    "node-fetch": "^2.6.1"
+    "cheerio": "1.0.0-rc.11",
+    "node-fetch": "^3.2.6"
   }
 }
