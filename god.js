@@ -166,6 +166,20 @@ async function get_request() {
         if (err) throw err;
         //res.send(yearlist)
     });
+
+    let today = new Date();
+
+    //now = ddmm(yyyy+543)
+    let now = ('0' + today.getDate()).slice(-2) + " " + ('0' + (today.getMonth+1)).slice(-2) + " " + (today.getFullYear() + 543)
+
+    let checklot = await fetch('https://thai-lottery1.p.rapidapi.com/?date='+now, {method: 'GET',headers: {'X-RapidAPI-Key': 'c34ed3c573mshbdf38eb6814e7a7p1e0eedjsnab10f5aef137','X-RapidAPI-Host': 'thai-lottery1.p.rapidapi.com'}});
+    let checklotjson = await checklot.json();
+    if(checklotjson[0][1] != "0" && checklotjson[0][1] != 0){
+        let imagefetch = await fetch('https://boy-discord-bot.herokuapp.com/?tile=true&date='+now);
+        let arraybuffer = await imagefetch.arrayBuffer();
+        let buffer = Buffer.from(arraybuffer);
+        fs.createWriteStream(now+"_tile.png").write(buffer);
+    }
 }
 
 get_request()
