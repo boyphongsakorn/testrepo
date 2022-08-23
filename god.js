@@ -178,7 +178,7 @@ async function get_request() {
         let imagefetch = await fetch('https://boy-discord-bot.herokuapp.com/?tile=true&date='+now);
         let arraybuffer = await imagefetch.arrayBuffer();
         let buffer = Buffer.from(arraybuffer);
-        fs.createWriteStream(now+"_tile.png").write(buffer);
+        fs.createWriteStream("tmp/"+now+"_tile.png").write(buffer);
     }
 }
 
