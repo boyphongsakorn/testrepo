@@ -59,7 +59,7 @@ async function get_one() {
                     }
                 //}
             }
-            fs.writeFile("tmp/" + padLeadingZeros(i, 6), JSON.stringify(allwin), function (err) {
+            fs.writeFile("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin), function (err) {
                 if (err) throw err;
                 //res.send(yearlist)
             });
