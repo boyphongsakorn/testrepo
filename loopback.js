@@ -65,7 +65,7 @@ async function get_one() {
             });
         }
     }
-    fs.writeFile("checkrange", checkrange + 500, function (err) {
+    fs.writeFile("checkrange", (checkrange + 500).toString(), function (err) {
         if (err) throw err;
         //res.send(yearlist)
     });
