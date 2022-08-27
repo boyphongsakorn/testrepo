@@ -60,10 +60,12 @@ async function get_one() {
                 //}
             }
         }
-        fs.writeFile("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin), function (err) {
-            if (err) throw err;
-            //res.send(yearlist)
-        });
+        if(allwin.length > 0){
+            fs.writeFile("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin), function (err) {
+                if (err) throw err;
+                //res.send(yearlist)
+            });
+        }
     }
     fs.writeFile("checkrange", (checkrange + 500).toString(), function (err) {
         if (err) throw err;
