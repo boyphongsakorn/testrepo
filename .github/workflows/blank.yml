@@ -66,6 +66,8 @@ jobs:
       - run: node myback.js
         if: env.number != ''
 
+      - run: node loopback.js
+
       - run: node so_zb_de_updatescript.js
       
       #- run: echo hello > test
