@@ -46,9 +46,9 @@ async function get_one() {
     }
     //loop lotto
     for (let x = checkrange; x <= (checkrange + 500); x++) {
+        allwin = []
         for (let i = 0; i < lotto.length; i++) {
             //console.log(lotto[i])
-            allwin = []
             for (let j = 0; j < lotto[i].length; j++) {
                 //console.log(lotto[i][j])
                 //for (let k = 0; k < lotto[i][j].length; k++) {
@@ -59,11 +59,11 @@ async function get_one() {
                     }
                 //}
             }
-            fs.writeFile("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin), function (err) {
-                if (err) throw err;
-                //res.send(yearlist)
-            });
         }
+        fs.writeFile("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin), function (err) {
+            if (err) throw err;
+            //res.send(yearlist)
+        });
     }
     fs.writeFile("checkrange", (checkrange + 500).toString(), function (err) {
         if (err) throw err;
