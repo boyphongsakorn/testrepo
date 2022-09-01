@@ -10,8 +10,8 @@ function padLeadingZeros(num, size) {
 async function get_one() {
     //read checkrange file
     let lotto = []
-    let checkrange = fs.readFileSync('checkrange', 'utf8')
-    checkrange = parseInt(checkrange)
+    /*let checkrange = fs.readFileSync('checkrange', 'utf8')
+    checkrange = parseInt(checkrange)*/
     //for (let i = checkrange; i <= checkrange + 500; i++) {
         //let lotnumber = i.padStart(6, '0')
         let channels
@@ -45,7 +45,7 @@ async function get_one() {
         });*/
     }
     //loop lotto
-    for (let x = checkrange; x <= (checkrange + 500); x++) {
+    for (let x = 0; x <= 999999; x++) {
         allwin = []
         for (let i = 0; i < lotto.length; i++) {
             //console.log(lotto[i])
@@ -67,10 +67,10 @@ async function get_one() {
             });
         }
     }
-    fs.writeFile("checkrange", (checkrange + 500).toString(), function (err) {
+    /*fs.writeFile("checkrange", (checkrange + 500).toString(), function (err) {
         if (err) throw err;
         //res.send(yearlist)
-    });
+    });*/
 }
 
 get_one()
