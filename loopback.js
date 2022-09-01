@@ -20,7 +20,7 @@ async function get_one() {
             .then(res => res.json())
             .then((body) => {
                 channels = body.splice(408)
-                console.log(channels)
+                //console.log(channels)
             })
         for (const val of channels) {
             console.log(val)
@@ -54,7 +54,7 @@ async function get_one() {
                 //for (let k = 0; k < lotto[i][j].length; k++) {
                     //console.log(lotto[i][j][k])
                     if(lotto[i][j].includes(padLeadingZeros(x, 6).toString())){
-                        console.log(lotto[i][j])
+                        //console.log(lotto[i][j])
                         allwin.push(lotto[i][0][0])
                     }
                 //}
