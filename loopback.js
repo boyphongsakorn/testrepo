@@ -56,6 +56,7 @@ async function get_one() {
                     if(lotto[i][j].includes(padLeadingZeros(x, 6).toString())){
                         //console.log(lotto[i][j])
                         allwin.push(lotto[i][0][0])
+                        console.log(x)
                     }
                 //}
             }
