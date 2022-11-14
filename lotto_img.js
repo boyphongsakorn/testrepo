@@ -30,7 +30,7 @@ const puppeteer = require('puppeteer');
         const lottoapi = await fetch('https://lotapi3.pwisetthon.com/?date=' + datecheck)
         const test = await lottoapi.json()
 
-        let headercap = '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><style>body{font-family: \'Mitr\', font-noto-thai;background-image: url(\'' + bgurl + '\');color: white;}</style></head>'
+        let headercap = '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet"><style>body{font-family: \'Mitr\', font-noto-thai;background-image: url(\'' + bgurl + '\');color: white;}</style></head>'
         const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--no-first-run', '--disable-extensions'] });
         const page = await browser.newPage();
         await page.setViewport({ width: 1600, height: 1066 });
