@@ -1,12 +1,12 @@
 lockfileVersion: 5.4
 
 specifiers:
-  cheerio: 1.0.0-rc.11
+  cheerio: 1.0.0-rc.12
   node-fetch: ^3.2.6
   puppeteer: ^19.2.2
 
 dependencies:
-  cheerio: 1.0.0-rc.11
+  cheerio: 1.0.0-rc.12
   node-fetch: 3.2.6
   puppeteer: 19.2.2
 
@@ -129,8 +129,8 @@ packages:
       domutils: 3.0.1
     dev: false
 
-  /cheerio/1.0.0-rc.11:
-    resolution: {integrity: sha512-bQwNaDIBKID5ts/DsdhxrjqFXYfLw4ste+wMKqWA8DyKcS4qwsPP4Bk8ZNaTJjvpiX/qW3BT4sU7d6Bh5i+dag==}
+  /cheerio/1.0.0-rc.12:
+    resolution: {integrity: sha512-VqR8m68vM46BNnuZ5NtnGBKIE/DfN0cRIzg9n40EIq9NOv90ayxLBXA8fXC5gquFRGJSTRqBq25Jt2ECLR431Q==}
     engines: {node: '>= 6'}
     dependencies:
       cheerio-select: 2.1.0
@@ -140,7 +140,6 @@ packages:
       htmlparser2: 8.0.1
       parse5: 7.0.0
       parse5-htmlparser2-tree-adapter: 7.0.0
-      tslib: 2.4.0
     dev: false
 
   /chownr/1.1.4:
@@ -604,10 +603,6 @@ packages:
 
   /tr46/0.0.3:
     resolution: {integrity: sha512-N3WMsuqV66lT30CrXNbEjx4GEwlow3v6rr4mCcv6prnfwhS01rkgyFdjPNBYd9br7LpXV1+Emh01fHnq2Gdgrw==}
-    dev: false
-
-  /tslib/2.4.0:
-    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
     dev: false
 
   /unbzip2-stream/1.4.3:
