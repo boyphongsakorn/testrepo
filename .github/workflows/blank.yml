@@ -56,7 +56,7 @@ jobs:
           node-version: 16
       
       - run: npm install -g pnpm
-      - run: pnpm install
+      - run: pnpm install --no-frozen-lockfile
       #- run: npm test
       #- run: npm run index
       #- run: npm god
