@@ -74,7 +74,7 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add -A
-          git commit -m "Add changes #1" -a
+          git commit -m "Add changes From Action Part 1" -a
           
       - name: Push changes
         uses: ad-m/github-push-action@master
@@ -98,7 +98,7 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add -A
-          git commit -m "Add changes #2" -a
+          git commit -m "Add changes From Action Part 2" -a
           
       - name: Push changes
         uses: ad-m/github-push-action@master
