@@ -60,13 +60,8 @@ jobs:
       #- run: npm test
       #- run: npm run index
       #- run: npm god
-
-      - run: node god.js
       
-      - run: node myback.js
-        if: env.number != ''
-
-      - run: node loopback.js
+      - run: node lotto_img.js
         if: env.number == ''
         
       - name: Commit files
@@ -82,7 +77,12 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
 
-      - run: node lotto_img.js
+      - run: node god.js
+      
+      - run: node myback.js
+        if: env.number != ''
+
+      - run: node loopback.js
         if: env.number == ''
 
       - run: node so_zb_de_updatescript.js
