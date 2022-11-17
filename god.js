@@ -167,7 +167,7 @@ async function get_request() {
         //res.send(yearlist)
     });
 
-    let today = new Date();
+    /*let today = new Date();
 
     //now = ddmm(yyyy+543)
     let now = ('0' + today.getDate()).slice(-2) + " " + ('0' + (today.getMonth+1)).slice(-2) + " " + (today.getFullYear() + 543)
@@ -179,7 +179,7 @@ async function get_request() {
         let arraybuffer = await imagefetch.arrayBuffer();
         let buffer = Buffer.from(arraybuffer);
         fs.createWriteStream("tmp/"+now+"_tile.png").write(buffer);
-    }
+    }*/
 }
 
 get_request()
