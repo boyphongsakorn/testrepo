@@ -64,18 +64,18 @@ jobs:
       - run: node lotto_img.js
         if: env.number == ''
         
-      - name: Commit files
-        run: |
-          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --local user.name "github-actions[bot]"
-          git add -A
-          git commit -m "Add changes From Action Part 1" -a
+      #- name: Commit files
+      #  run: |
+      #    git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+      #    git config --local user.name "github-actions[bot]"
+      #    git add -A
+      #    git commit -m "Add changes From Action Part 1" -a
           
-      - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+      #- name: Push changes
+      #  uses: ad-m/github-push-action@master
+      #  with:
+      #    github_token: ${{ secrets.GITHUB_TOKEN }}
+      #    branch: ${{ github.ref }}
 
       - run: node god.js
       
