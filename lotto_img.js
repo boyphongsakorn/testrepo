@@ -30,6 +30,8 @@ const puppeteer = require('puppeteer');
             case '11': monthtext = "พฤศจิกายน"; break;
             case '12': monthtext = "ธันวาคม"; break;
         }
+        
+        console.log(datecheck)
 
         const lottoapi = await fetch('https://lottsanook-cfworker.boy1556.workers.dev/?date=' + datecheck)
         const test = await lottoapi.json()
