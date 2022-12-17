@@ -14,6 +14,12 @@ const puppeteer = require('puppeteer');
     for (var i = 0; i < thisyearjson.length; i++) {
         const datecheck = thisyearjson[i]
 
+        //check image in img_tmp folder
+        if(fs.existsSync('./img_tmp/' + datecheck)){
+            //skip if image exist
+            continue
+        }
+
         let monthtext;
 
         switch (datecheck.substring(2, 4)) {
