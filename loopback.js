@@ -13,17 +13,18 @@ async function get_one() {
     /*let checkrange = fs.readFileSync('checkrange', 'utf8')
     checkrange = parseInt(checkrange)*/
     //for (let i = checkrange; i <= checkrange + 500; i++) {
-        //let lotnumber = i.padStart(6, '0')
-        let channels
-        let allwin = []
-        await fetch('https://lotapi.pwisetthon.com/god')
-            .then(res => res.json())
-            .then((body) => {
-                channels = body.splice(408)
-                //console.log(channels)
-            })
-        for (const val of channels) {
-            console.log(val)
+    //let lotnumber = i.padStart(6, '0')
+    let channels
+    let allwin = []
+    await fetch('https://lotapi.pwisetthon.com/god')
+        .then(res => res.json())
+        .then((body) => {
+            channels = body.splice(408)
+            //console.log(channels)
+        })
+    for (const val of channels) {
+        console.log(val)
+        try {
             await fetch('https://lotapi.pwisetthon.com/?date=' + val + '&from')
                 .then(res => res.json())
                 .then((body) => {
@@ -35,8 +36,21 @@ async function get_one() {
                             console.log('https://lotapi.pwisetthon.com/?date=' + val + '&from')
                         }
                     }*/
-
                 })
+        } catch (error) {
+            await fetch('https://lottsanook-cfworker.boy1556.workers.dev/?date=' + val + '&from')
+                .then(res => res.json())
+                .then((body) => {
+                    lotto.push(body)
+                    /*for (let index = 0; index < body.length; index++) {
+                        const element = body[index];
+                        if (element.includes(padLeadingZeros(i, 6).toString())) {
+                            allwin.push(body[0][0])
+                            console.log('https://lotapi.pwisetthon.com/?date=' + val + '&from')
+                        }
+                    }*/
+                })
+        }
         //}
         //res.send(allwin)
         /*fs.writeFile("tmp/" + padLeadingZeros(i, 6), JSON.stringify(allwin), function (err) {
@@ -52,16 +66,16 @@ async function get_one() {
             for (let j = 0; j < lotto[i].length; j++) {
                 //console.log(lotto[i][j])
                 //for (let k = 0; k < lotto[i][j].length; k++) {
-                    //console.log(lotto[i][j][k])
-                    if(lotto[i][j].includes(padLeadingZeros(x, 6).toString())){
-                        //console.log(lotto[i][j])
-                        allwin.push(lotto[i][0][0])
-                        console.log(x)
-                    }
+                //console.log(lotto[i][j][k])
+                if (lotto[i][j].includes(padLeadingZeros(x, 6).toString())) {
+                    //console.log(lotto[i][j])
+                    allwin.push(lotto[i][0][0])
+                    console.log(x)
+                }
                 //}
             }
         }
-        if(allwin.length > 0){
+        if (allwin.length > 0) {
             fs.writeFile("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin), function (err) {
                 if (err) throw err;
                 //res.send(yearlist)
