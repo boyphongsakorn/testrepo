@@ -23,7 +23,7 @@
   "homepage": "https://github.com/boyphongsakorn/testrepo#readme",
   "dependencies": {
     "cheerio": "1.0.0-rc.12",
-    "node-fetch": "^3.2.6",
-    "puppeteer": "^19.2.2"
+    "node-fetch": "^3.3.0",
+    "puppeteer": "^19.4.1"
   }
 }
