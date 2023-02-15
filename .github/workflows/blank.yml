@@ -63,6 +63,8 @@ jobs:
       
       - run: node lotto_img.js
         if: env.number == ''
+
+      - run: node getnews.js
         
       - name: Commit files
         run: |
