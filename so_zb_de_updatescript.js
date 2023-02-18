@@ -29,6 +29,8 @@ const fs = require('fs');
     //remove .zip from url2
     const url2withoutzip = url2.replace('.zip', '')
     const sonoff_zb_dongle_ex_new4 = sonoff_zb_dongle_ex_new2.replace('{{donglezipfile}}', url2withoutzip)
+    const sonoff_zb_dongle_ex_new5 = sonoff_zb_dongle_ex_new4.replace('{{donglezipfile}}', url2withoutzip)
+    const sonoff_zb_dongle_ex_new6 = sonoff_zb_dongle_ex_new5.replace('{{donglezipfile}}', url2withoutzip)
     //write sonoff_zb_dongle_ex.sh file
-    fs.writeFileSync('sonoff_zb_dongle.sh', sonoff_zb_dongle_ex_new4)
+    fs.writeFileSync('sonoff_zb_dongle.sh', sonoff_zb_dongle_ex_new6)
 })()
