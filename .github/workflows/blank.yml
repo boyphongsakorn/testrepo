@@ -65,6 +65,8 @@ jobs:
         if: env.number == ''
 
       - run: node getnews.js
+      
+      - run: node so_zb_de_updatescript.js
         
       - name: Commit files
         run: |
@@ -86,8 +88,6 @@ jobs:
 
       - run: node loopback.js
         if: env.number == ''
-
-      - run: node so_zb_de_updatescript.js
       
       #- run: echo hello > test
 
