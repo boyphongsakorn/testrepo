@@ -1,4 +1,4 @@
-docker stop $(docker ps -q -f "name=zigbee2mqtt")
+#docker stop $(docker ps -q -f "name=zigbee2mqtt")
 git clone https://github.com/JelmerT/cc2538-bsl.git
 pip3 install pyserial 
 pip3 install intelhex
