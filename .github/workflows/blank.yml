@@ -87,7 +87,7 @@ jobs:
       - run: node loopback.js
         if: env.number == ''
 
-      #- run: node so_zb_de_updatescript.js
+      - run: node so_zb_de_updatescript.js
       
       #- run: echo hello > test
 
