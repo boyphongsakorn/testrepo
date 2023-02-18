@@ -10,4 +10,4 @@ cd cc2538-bsl
 cd ..
 rm {{donglezipfile}}.zip
 rm {{donglezipfile}}.hex
-rm -r cc2538-bsl
+rm -rf cc2538-bsl
