@@ -7,3 +7,7 @@ wget {{sonoff_zb_dongle_url}}
 unzip {{donglezipfile}}
 cd cc2538-bsl
 ./cc2538-bsl.py -p /dev/ttyUSB0 -e -v -w --bootloader-sonoff-usb ~/{{donglezipfile}}.hex
+cd ..
+rm {{donglezipfile}}.zip
+rm {{donglezipfile}}.hex
+rm -r cc2538-bsl
