@@ -8,6 +8,6 @@ unzip CC1352P2_CC2652P_launchpad_coordinator_20221226.zip
 cd cc2538-bsl
 ./cc2538-bsl.py -p /dev/ttyUSB0 -e -v -w --bootloader-sonoff-usb ~/CC1352P2_CC2652P_launchpad_coordinator_20221226.hex
 cd ..
-rm {{donglezipfile}}.zip
-rm {{donglezipfile}}.hex
+rm CC1352P2_CC2652P_launchpad_coordinator_20221226.zip
+rm CC1352P2_CC2652P_launchpad_coordinator_20221226.hex
 rm -rf cc2538-bsl
