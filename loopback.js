@@ -25,7 +25,7 @@ async function get_one() {
     for (const val of channels) {
         console.log(val)
         try {
-            await fetch('https://lotapi.pwisetthon.com/?date=' + val + '&from')
+            await fetch('https://lotapi.pwisetthon.com/?date=' + val + '&from=true')
                 .then(res => res.json())
                 .then((body) => {
                     lotto.push(body)
@@ -38,7 +38,7 @@ async function get_one() {
                     }*/
                 })
         } catch (error) {
-            await fetch('https://lottsanook-cfworker.boy1556.workers.dev/?date=' + val + '&from')
+            await fetch('https://lottsanook-cfworker.boy1556.workers.dev/?date=' + val + '&from=true')
                 .then(res => res.json())
                 .then((body) => {
                     lotto.push(body)
