@@ -25,31 +25,37 @@ async function get_one() {
     for (const val of channels) {
         console.log(val)
         try {
-            await fetch('https://lotapi.pwisetthon.com/?date=' + val + '&from=true')
-                .then(res => res.json())
-                .then((body) => {
-                    lotto.push(body)
-                    /*for (let index = 0; index < body.length; index++) {
-                        const element = body[index];
-                        if (element.includes(padLeadingZeros(i, 6).toString())) {
-                            allwin.push(body[0][0])
-                            console.log('https://lotapi.pwisetthon.com/?date=' + val + '&from')
-                        }
-                    }*/
-                })
+            // await fetch('https://lotapi.pwisetthon.com/?date=' + val + '&from=true')
+            //     .then(res => res.json())
+            //     .then((body) => {
+            //         lotto.push(body)
+            //         /*for (let index = 0; index < body.length; index++) {
+            //             const element = body[index];
+            //             if (element.includes(padLeadingZeros(i, 6).toString())) {
+            //                 allwin.push(body[0][0])
+            //                 console.log('https://lotapi.pwisetthon.com/?date=' + val + '&from')
+            //             }
+            //         }*/
+            //     })
+            const api1 = await fetch('https://lotapi.pwisetthon.com/?date=' + val + '&from=true')
+            const body1 = await api1.json()
+            lotto.push(body1)
         } catch (error) {
-            await fetch('https://lottsanook-cfworker.boy1556.workers.dev/?date=' + val + '&from=true')
-                .then(res => res.json())
-                .then((body) => {
-                    lotto.push(body)
-                    /*for (let index = 0; index < body.length; index++) {
-                        const element = body[index];
-                        if (element.includes(padLeadingZeros(i, 6).toString())) {
-                            allwin.push(body[0][0])
-                            console.log('https://lotapi.pwisetthon.com/?date=' + val + '&from')
-                        }
-                    }*/
-                })
+            // await fetch('https://lottsanook-cfworker.boy1556.workers.dev/?date=' + val + '&from=true')
+            //     .then(res => res.json())
+            //     .then((body) => {
+            //         lotto.push(body)
+            //         /*for (let index = 0; index < body.length; index++) {
+            //             const element = body[index];
+            //             if (element.includes(padLeadingZeros(i, 6).toString())) {
+            //                 allwin.push(body[0][0])
+            //                 console.log('https://lotapi.pwisetthon.com/?date=' + val + '&from')
+            //             }
+            //         }*/
+            //     })
+            const api2 = await fetch('https://lottsanook-cfworker.boy1556.workers.dev/?date=' + val + '&from=true')
+            const body2 = await api2.json()
+            lotto.push(body2)
         }
         //}
         //res.send(allwin)
@@ -67,15 +73,29 @@ async function get_one() {
                 //console.log(lotto[i][j])
                 //for (let k = 0; k < lotto[i][j].length; k++) {
                 //console.log(lotto[i][j][k])
-                if (lotto[i][j].includes(padLeadingZeros(x, 6).toString())) {
+                // if (lotto[i][j].includes(padLeadingZeros(x, 6).toString())) {
+                if (padLeadingZeros(lotto[i][j], 6).toString().includes(padLeadingZeros(x, 6).toString())) {
                     //console.log(lotto[i][j])
                     allwin.push(lotto[i][0][0])
                     console.log(x)
+                    console.log(lotto[i][0][0])
                 }
                 //}
             }
         }
         if (allwin.length > 0) {
+            //check if file exist
+            if(fs.existsSync("tmp/" + padLeadingZeros(x, 6))){
+                //read file
+                const thisfile = await fs.readFileSync("tmp/" + padLeadingZeros(x, 6), 'utf8')
+                //get array
+                const thisarray = JSON.parse(thisfile)
+                //add new array
+                allwin = allwin.concat(thisarray)
+                //remove duplicate
+                allwin = [...new Set(allwin)]
+            }
+            //write file
             fs.writeFile("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin), function (err) {
                 if (err) throw err;
                 //res.send(yearlist)
