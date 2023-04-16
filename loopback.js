@@ -85,7 +85,8 @@ async function get_one() {
         }
         if (allwin.length > 0) {
             //check if file exist
-            if(fs.existsSync("tmp/" + padLeadingZeros(x, 6))){
+            const exit = await fs.existsSync("tmp/" + padLeadingZeros(x, 6))
+            if(exit){
                 //read file
                 const thisfile = await fs.readFileSync("tmp/" + padLeadingZeros(x, 6), 'utf8')
                 //get array
