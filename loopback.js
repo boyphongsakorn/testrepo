@@ -72,7 +72,7 @@ async function get_one() {
             for (let j = 0; j < lotto[i].length; j++) {
                 //console.log(lotto[i][j])
                 for (let k = 0; k < lotto[i][j].length; k++) {
-                    console.log(lotto[i][j][k])
+                    // console.log(lotto[i][j][k])
                 // if (lotto[i][j].includes(padLeadingZeros(x, 6))) {
                 // if (padLeadingZeros(lotto[i][j], 6).toString().includes(padLeadingZeros(x, 6).toString())) {
                 // if (lotto[i][j] == padLeadingZeros(x, 6)) {
@@ -84,8 +84,8 @@ async function get_one() {
                     if (lotto[i][j][k] == padLeadingZeros(x, 6) && lotto[i][j][k].length == 6) {
                         //console.log(lotto[i][j])
                         allwin.push(lotto[i][0][0])
-                        console.log(x)
-                        console.log(lotto[i][0][0])
+                        // console.log(x)
+                        // console.log(lotto[i][0][0])
                     }
                 }
             }
