@@ -71,17 +71,23 @@ async function get_one() {
             //console.log(lotto[i])
             for (let j = 0; j < lotto[i].length; j++) {
                 //console.log(lotto[i][j])
-                //for (let k = 0; k < lotto[i][j].length; k++) {
-                //console.log(lotto[i][j][k])
+                for (let k = 0; k < lotto[i][j].length; k++) {
+                    console.log(lotto[i][j][k])
                 // if (lotto[i][j].includes(padLeadingZeros(x, 6))) {
                 // if (padLeadingZeros(lotto[i][j], 6).toString().includes(padLeadingZeros(x, 6).toString())) {
-                if (lotto[i][j] == padLeadingZeros(x, 6)) {
-                    //console.log(lotto[i][j])
-                    allwin.push(lotto[i][0][0])
-                    // console.log(x)
-                    // console.log(lotto[i][0][0])
+                // if (lotto[i][j] == padLeadingZeros(x, 6)) {
+                //     //console.log(lotto[i][j])
+                //     allwin.push(lotto[i][0][0])
+                //     // console.log(x)
+                //     // console.log(lotto[i][0][0])
+                // }
+                    if (lotto[i][j][k] == padLeadingZeros(x, 6)) {
+                        //console.log(lotto[i][j])
+                        allwin.push(lotto[i][0][0])
+                        console.log(x)
+                        console.log(lotto[i][0][0])
+                    }
                 }
-                //}
             }
         }
         if (allwin.length > 0) {
