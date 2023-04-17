@@ -73,12 +73,13 @@ async function get_one() {
                 //console.log(lotto[i][j])
                 //for (let k = 0; k < lotto[i][j].length; k++) {
                 //console.log(lotto[i][j][k])
-                if (lotto[i][j].includes(padLeadingZeros(x, 6))) {
+                // if (lotto[i][j].includes(padLeadingZeros(x, 6))) {
                 // if (padLeadingZeros(lotto[i][j], 6).toString().includes(padLeadingZeros(x, 6).toString())) {
+                if (lotto[i][j] == padLeadingZeros(x, 6)) {
                     //console.log(lotto[i][j])
                     allwin.push(lotto[i][0][0])
-                    console.log(x)
-                    console.log(lotto[i][0][0])
+                    // console.log(x)
+                    // console.log(lotto[i][0][0])
                 }
                 //}
             }
@@ -97,10 +98,11 @@ async function get_one() {
                 allwin = [...new Set(allwin)]
             }
             //write file
-            fs.writeFile("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin), function (err) {
-                if (err) throw err;
-                //res.send(yearlist)
-            });
+            // fs.writeFile("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin), function (err) {
+            //     if (err) throw err;
+            //     //res.send(yearlist)
+            // });
+            await fs.writeFileSync("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin))
         }
     }
     /*fs.writeFile("checkrange", (checkrange + 500).toString(), function (err) {
