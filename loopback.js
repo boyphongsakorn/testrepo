@@ -81,7 +81,7 @@ async function get_one() {
                 //     // console.log(x)
                 //     // console.log(lotto[i][0][0])
                 // }
-                    if (lotto[i][j][k] == padLeadingZeros(x, 6)) {
+                    if (lotto[i][j][k] == padLeadingZeros(x, 6) && lotto[i][j][k].length == 6) {
                         //console.log(lotto[i][j])
                         allwin.push(lotto[i][0][0])
                         console.log(x)
