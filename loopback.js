@@ -111,6 +111,98 @@ async function get_one() {
             await fs.writeFileSync("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin))
         }
     }
+    for (let x = 0; x <= 999; x++) {
+        allwin = []
+        for (let i = 0; i < lotto.length; i++) {
+            //console.log(lotto[i])
+            for (let j = 0; j < lotto[i].length; j++) {
+                //console.log(lotto[i][j])
+                for (let k = 0; k < lotto[i][j].length; k++) {
+                    // console.log(lotto[i][j][k])
+                // if (lotto[i][j].includes(padLeadingZeros(x, 6))) {
+                // if (padLeadingZeros(lotto[i][j], 6).toString().includes(padLeadingZeros(x, 6).toString())) {
+                // if (lotto[i][j] == padLeadingZeros(x, 6)) {
+                //     //console.log(lotto[i][j])
+                //     allwin.push(lotto[i][0][0])
+                //     // console.log(x)
+                //     // console.log(lotto[i][0][0])
+                // }
+                    if (lotto[i][j][k] == padLeadingZeros(x, 3) && lotto[i][j][k].length == 3) {
+                        //console.log(lotto[i][j])
+                        allwin.push(lotto[i][0][0])
+                        // console.log(x)
+                        // console.log(lotto[i][0][0])
+                    }
+                }
+            }
+        }
+        if (allwin.length > 0) {
+            //check if file exist
+            const exit = await fs.existsSync("tmp/" + padLeadingZeros(x, 3))
+            if(exit){
+                //read file
+                const thisfile = await fs.readFileSync("tmp/" + padLeadingZeros(x, 3), 'utf8')
+                //get array
+                const thisarray = JSON.parse(thisfile)
+                //add new array
+                allwin = allwin.concat(thisarray)
+                //remove duplicate
+                allwin = [...new Set(allwin)]
+            }
+            //write file
+            // fs.writeFile("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin), function (err) {
+            //     if (err) throw err;
+            //     //res.send(yearlist)
+            // });
+            await fs.writeFileSync("tmp/" + padLeadingZeros(x, 3), JSON.stringify(allwin))
+        }
+    }
+    for (let x = 0; x <= 99; x++) {
+        allwin = []
+        for (let i = 0; i < lotto.length; i++) {
+            //console.log(lotto[i])
+            for (let j = 0; j < lotto[i].length; j++) {
+                //console.log(lotto[i][j])
+                for (let k = 0; k < lotto[i][j].length; k++) {
+                    // console.log(lotto[i][j][k])
+                // if (lotto[i][j].includes(padLeadingZeros(x, 6))) {
+                // if (padLeadingZeros(lotto[i][j], 6).toString().includes(padLeadingZeros(x, 6).toString())) {
+                // if (lotto[i][j] == padLeadingZeros(x, 6)) {
+                //     //console.log(lotto[i][j])
+                //     allwin.push(lotto[i][0][0])
+                //     // console.log(x)
+                //     // console.log(lotto[i][0][0])
+                // }
+                    if (lotto[i][j][k] == padLeadingZeros(x, 2) && lotto[i][j][k].length == 2) {
+                        //console.log(lotto[i][j])
+                        allwin.push(lotto[i][0][0])
+                        // console.log(x)
+                        // console.log(lotto[i][0][0])
+                    }
+                }
+            }
+        }
+        if (allwin.length > 0) {
+            //check if file exist
+            const exit = await fs.existsSync("tmp/" + padLeadingZeros(x, 2))
+            if(exit){
+                //read file
+                const thisfile = await fs.readFileSync("tmp/" + padLeadingZeros(x, 2), 'utf8')
+                //get array
+                const thisarray = JSON.parse(thisfile)
+                //add new array
+                allwin = allwin.concat(thisarray)
+                //remove duplicate
+                allwin = [...new Set(allwin)]
+            }
+            //write file
+            // fs.writeFile("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin), function (err) {
+            //     if (err) throw err;
+            //     //res.send(yearlist)
+            // });
+            await fs.writeFileSync("tmp/" + padLeadingZeros(x, 2), JSON.stringify(allwin))
+        }
+    }
     /*fs.writeFile("checkrange", (checkrange + 500).toString(), function (err) {
         if (err) throw err;
         //res.send(yearlist)
