@@ -102,6 +102,10 @@ async function get_one() {
                 allwin = allwin.concat(thisarray)
                 //remove duplicate
                 allwin = [...new Set(allwin)]
+                //remove word รางวัลที่1
+                allwin = allwin.filter(function (el) {
+                    return el != "รางวัลที่1";
+                })
             }
             //write file
             // fs.writeFile("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin), function (err) {
@@ -148,6 +152,10 @@ async function get_one() {
                 allwin = allwin.concat(thisarray)
                 //remove duplicate
                 allwin = [...new Set(allwin)]
+                //remove word รางวัลที่1
+                allwin = allwin.filter(function (el) {
+                    return el != "รางวัลที่1";
+                })
             }
             //write file
             // fs.writeFile("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin), function (err) {
@@ -194,6 +202,10 @@ async function get_one() {
                 allwin = allwin.concat(thisarray)
                 //remove duplicate
                 allwin = [...new Set(allwin)]
+                //remove word รางวัลที่1
+                allwin = allwin.filter(function (el) {
+                    return el != "รางวัลที่1";
+                })
             }
             //write file
             // fs.writeFile("tmp/" + padLeadingZeros(x, 6), JSON.stringify(allwin), function (err) {
