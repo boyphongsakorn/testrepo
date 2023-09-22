@@ -4,7 +4,7 @@ const fs = require('fs');
 (async () => {
     const api = await fetch('https://api.github.com/repos/Koenkk/Z-Stack-firmware/git/trees/master?recursive=1')
     const json = await api.json()
-    const tree = json.tree[0]
+    const tree = json.tree
     //find path coordinator/Z-Stack_3.x.0/bin in the tree
     const path = tree.find(({path}) => path === 'coordinator/Z-Stack_3.x.0/bin')
     //get url of the blob
