@@ -6,7 +6,7 @@ async function get_one() {
         .then(res => res.json())
         .then((body) => {
             //res.send(allwin)
-            if (body.status != 500) {
+            if (body.status != 500 || body.statusCode != 500) {
                 fs.writeFile("latestnews.json", JSON.stringify(body), function (err) {
                     if (err) throw err;
                     //res.send(yearlist)
@@ -14,5 +14,3 @@ async function get_one() {
             }
         })
 }
-
-get_one()
