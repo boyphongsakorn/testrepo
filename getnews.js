@@ -14,3 +14,5 @@ async function get_one() {
             }
         })
 }
+
+get_one()
