@@ -79,7 +79,7 @@ async function ensureAndReadFolder(folderPath) {
         //await page.waitForTimeout(1000);
         console.log('Screenshotting...');
         await new Promise(r => setTimeout(r, 5000)); 
-        await page.screenshot({ type: 'jpeg', quality: 100, path: 'img_tmp/' + datecheck });
+        await page.screenshot({ type: 'jpeg', quality: 100, path: './img_tmp/' + datecheck });
         console.log('Finished generating screenshots!');
         await browser.close();
     }
