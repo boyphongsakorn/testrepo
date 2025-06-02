@@ -67,7 +67,7 @@ async function ensureAndReadFolder(folderPath) {
         
         console.log(datecheck)
 
-        const lottoapi = await fetch('https://lottsanook-cfworker.boy1556.workers.dev/?date=' + datecheck)
+        const lottoapi = await fetch('https://lottsanook-cfworker.boy1556.workers.dev/index2?date=' + datecheck)
         const test = await lottoapi.json()
 
         let headercap = '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link href="https://fonts.googleapis.com/css2?family=Mitr&display=swap" rel="stylesheet"><style>body{font-family: \'Mitr\';background-image: url(\'' + bgurl + '\');color: white;}</style></head>'
