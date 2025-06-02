@@ -14,7 +14,7 @@ async function ensureAndReadFolder(folderPath) {
     console.log('Files:', files);
     return files;
   } catch (err) {
-    console.error('Error:', err);
+    console.log('Error:', err);
   }
 }
 
