@@ -60,6 +60,8 @@ jobs:
       #- run: npm test
       #- run: npm run index
       #- run: npm god
+
+      - run: npx puppeteer browsers install chrome
       
       - run: node lotto_img.js
         if: env.number == ''
