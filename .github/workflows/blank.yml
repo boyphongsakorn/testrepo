@@ -65,6 +65,7 @@ jobs:
         if: env.number == ''
 
       - run: node getnews.js
+        continue-on-error: true
       
       - run: node so_zb_de_updatescript.js
         
