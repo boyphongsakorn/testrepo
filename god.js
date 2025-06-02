@@ -54,7 +54,7 @@ async function get_request() {
             if (ayear > nextyear) {
                 break
             }
-            await fetch('https://www.myhora.com/%E0%B8%AB%E0%B8%A7%E0%B8%A2/%E0%B8%9B%E0%B8%B5-' + ayear + '.aspx')
+            await fetch('https://www.myhora.com/lottery/result-' + ayear + '.aspx')
                 .then(res => res.text())
                 .then((body) => {
                     /*const url = 'https://www.myhora.com/%E0%B8%AB%E0%B8%A7%E0%B8%A2/%E0%B8%9B%E0%B8%B5-' + ayear + '.aspx';
