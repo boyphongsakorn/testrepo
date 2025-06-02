@@ -1,6 +1,7 @@
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 var fs = require('fs')
 const puppeteer = require('puppeteer');
+const path = require('path');
 
 async function ensureAndReadFolder(folderPath) {
   try {
