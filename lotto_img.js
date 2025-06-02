@@ -29,7 +29,7 @@ async function ensureAndReadFolder(folderPath) {
     //loop json
     //get all file in img_tmp folder
     // const files = fs.readdirSync('./img_tmp')
-    const files = ensureAndReadFolder(path.join(__dirname, 'img_tmp'));
+    const files = ensureAndReadFolder(path.join(__dirname, './img_tmp'));
     //loop file in img_tmp folder
     for (var i = 0; i < files.length; i++) {
         const file = files[i]
