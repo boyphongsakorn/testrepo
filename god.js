@@ -110,6 +110,7 @@ async function get_request() {
             const page = await browser.newPage();
             await page.goto('https://www.myhora.com/lottery/result-' + ayear + '.aspx', { waitUntil: 'networkidle2' });
             const content = await page.content();
+            console.log(content)
             var $ = cheerio.load(content);
             for (const val of $('font').toArray()) {
                 if (val.firstChild.data.indexOf('ตรวจสลากกินแบ่งรัฐบาล') > -1) {
@@ -150,6 +151,7 @@ async function get_request() {
                     if (err) throw err;
                 });*/
             }
+            await browser.close();
         }
         year += 10
     }
