@@ -1,5 +1,6 @@
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const cheerio = require('cheerio')
+const puppeteer = require('puppeteer');
 var fs = require('fs')
 
 function padLeadingZeros(num, size) {
@@ -58,53 +59,97 @@ async function get_request() {
             if (ayear > nextyear) {
                 break
             }
-            await fetch('https://www.myhora.com/lottery/result-' + ayear + '.aspx')
-                .then(res => res.text())
-                .then((body) => {
-                    /*const url = 'https://www.myhora.com/%E0%B8%AB%E0%B8%A7%E0%B8%A2/%E0%B8%9B%E0%B8%B5-' + ayear + '.aspx';
-                    const res = await fetch(url);
-                    const body = await res.text();*/
-                    var $ = cheerio.load(body);
-                    for (const val of $('font').toArray()) {
-                        if (val.firstChild.data.indexOf('ตรวจสลากกินแบ่งรัฐบาล') > -1) {
-                            day = val.firstChild.data.split(" ").splice(2)
-                            let monthnum
-                            switch (day[1]) {
-                                case 'มกราคม': monthnum = "01"; break;
-                                case 'กุมภาพันธ์': monthnum = "02"; break;
-                                case 'มีนาคม': monthnum = "03"; break;
-                                case 'เมษายน': monthnum = "04"; break;
-                                case 'พฤษภาคม': monthnum = "05"; break;
-                                case 'มิถุนายน': monthnum = "06"; break;
-                                case 'กรกฎาคม': monthnum = "07"; break;
-                                case 'สิงหาคม': monthnum = "08"; break;
-                                case 'กันยายน': monthnum = "09"; break;
-                                case 'ตุลาคม': monthnum = "10"; break;
-                                case 'พฤศจิกายน': monthnum = "11"; break;
-                                case 'ธันวาคม': monthnum = "12"; break;
-                            }
-                            peryear.unshift(padLeadingZeros(day[0], 2) + monthnum + day[2])
-                            preyearsuperlist.unshift(padLeadingZeros(day[0], 2) + monthnum + day[2])
-                        }
-                    }
-                    for (const val of peryear) {
-                        yearlist.push(val)
-                    }
-                    for (const val of preyearsuperlist) {
-                        preyearlist.push(val)
-                        /*try {
-                            if (day[3] == new Date().getFullYear() + 543) {
-                                fs.unlinkSync('tmp/' + req.query.date + '.txt');
-                                console.log('yes this year')
-                            }
-                        } catch (err) {
+            // await fetch('https://www.myhora.com/lottery/result-' + ayear + '.aspx')
+            //     .then(res => res.text())
+            //     .then((body) => {
+            //         /*const url = 'https://www.myhora.com/%E0%B8%AB%E0%B8%A7%E0%B8%A2/%E0%B8%9B%E0%B8%B5-' + ayear + '.aspx';
+            //         const res = await fetch(url);
+            //         const body = await res.text();*/
+            //         var $ = cheerio.load(body);
+            //         for (const val of $('font').toArray()) {
+            //             if (val.firstChild.data.indexOf('ตรวจสลากกินแบ่งรัฐบาล') > -1) {
+            //                 day = val.firstChild.data.split(" ").splice(2)
+            //                 let monthnum
+            //                 switch (day[1]) {
+            //                     case 'มกราคม': monthnum = "01"; break;
+            //                     case 'กุมภาพันธ์': monthnum = "02"; break;
+            //                     case 'มีนาคม': monthnum = "03"; break;
+            //                     case 'เมษายน': monthnum = "04"; break;
+            //                     case 'พฤษภาคม': monthnum = "05"; break;
+            //                     case 'มิถุนายน': monthnum = "06"; break;
+            //                     case 'กรกฎาคม': monthnum = "07"; break;
+            //                     case 'สิงหาคม': monthnum = "08"; break;
+            //                     case 'กันยายน': monthnum = "09"; break;
+            //                     case 'ตุลาคม': monthnum = "10"; break;
+            //                     case 'พฤศจิกายน': monthnum = "11"; break;
+            //                     case 'ธันวาคม': monthnum = "12"; break;
+            //                 }
+            //                 peryear.unshift(padLeadingZeros(day[0], 2) + monthnum + day[2])
+            //                 preyearsuperlist.unshift(padLeadingZeros(day[0], 2) + monthnum + day[2])
+            //             }
+            //         }
+            //         for (const val of peryear) {
+            //             yearlist.push(val)
+            //         }
+            //         for (const val of preyearsuperlist) {
+            //             preyearlist.push(val)
+            //             /*try {
+            //                 if (day[3] == new Date().getFullYear() + 543) {
+            //                     fs.unlinkSync('tmp/' + req.query.date + '.txt');
+            //                     console.log('yes this year')
+            //                 }
+            //             } catch (err) {
          
-                        }
-                        fs.writeFile('tmp/' + day[3] + '.txt', JSON.stringify(preyearlist), function (err) {
-                            if (err) throw err;
-                        });*/
+            //             }
+            //             fs.writeFile('tmp/' + day[3] + '.txt', JSON.stringify(preyearlist), function (err) {
+            //                 if (err) throw err;
+            //             });*/
+            //         }
+            //     })
+            const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--no-first-run', '--disable-extensions'] });
+            const page = await browser.newPage();
+            await page.goto('https://www.myhora.com/lottery/result-' + ayear + '.aspx', { waitUntil: 'networkidle2' });
+            const content = await page.content();
+            var $ = cheerio.load(content);
+            for (const val of $('font').toArray()) {
+                if (val.firstChild.data.indexOf('ตรวจสลากกินแบ่งรัฐบาล') > -1) {
+                    day = val.firstChild.data.split(" ").splice(2)
+                    let monthnum
+                    switch (day[1]) {
+                        case 'มกราคม': monthnum = "01"; break;
+                        case 'กุมภาพันธ์': monthnum = "02"; break;
+                        case 'มีนาคม': monthnum = "03"; break;
+                        case 'เมษายน': monthnum = "04"; break;
+                        case 'พฤษภาคม': monthnum = "05"; break;
+                        case 'มิถุนายน': monthnum = "06"; break;
+                        case 'กรกฎาคม': monthnum = "07"; break;
+                        case 'สิงหาคม': monthnum = "08"; break;
+                        case 'กันยายน': monthnum = "09"; break;
+                        case 'ตุลาคม': monthnum = "10"; break;
+                        case 'พฤศจิกายน': monthnum = "11"; break;
+                        case 'ธันวาคม': monthnum = "12"; break;
                     }
-                })
+                    peryear.unshift(padLeadingZeros(day[0], 2) + monthnum + day[2])
+                    preyearsuperlist.unshift(padLeadingZeros(day[0], 2) + monthnum + day[2])
+                }
+            }
+            for (const val of peryear) {
+                yearlist.push(val)
+            }
+            for (const val of preyearsuperlist) {
+                preyearlist.push(val)
+                /*try {
+                    if (day[3] == new Date().getFullYear() + 543) {
+                        fs.unlinkSync('tmp/' + req.query.date + '.txt');
+                        console.log('yes this year')
+                    }
+                } catch (err) {
+ 
+                }
+                fs.writeFile('tmp/' + day[3] + '.txt', JSON.stringify(preyearlist), function (err) {
+                    if (err) throw err;
+                });*/
+            }
         }
         year += 10
     }
