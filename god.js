@@ -1,8 +1,15 @@
 const fetch = (...args) => import('node-fetch').then(({default: fetch}) => fetch(...args));
 const cheerio = require('cheerio')
-const puppeteer = require('puppeteer');
+
+const puppeteer = require('puppeteer-extra');
+const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+
+// const puppeteer = require('puppeteer');
+const { executablePath } = require('puppeteer');
 const { setTimeout } = require('node:timers/promises');
 var fs = require('fs')
+
+puppeteer.use(StealthPlugin());
 
 function padLeadingZeros(num, size) {
     var s = num + "";
@@ -107,7 +114,7 @@ async function get_request() {
             //             });*/
             //         }
             //     })
-            const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--no-first-run', '--disable-extensions'] });
+            const browser = await puppeteer.launch({ executablePath: executablePath(),args: ['--no-sandbox', '--disable-setuid-sandbox', '--no-first-run', '--disable-extensions'] });
             const page = await browser.newPage();
             await page.goto('https://www.myhora.com/lottery/result-' + ayear + '.aspx', { waitUntil: 'networkidle2' });
             await setTimeout(50000); // wait for 10 seconds
