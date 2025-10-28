@@ -25,23 +25,27 @@ async function get_request() {
     }
     if (fileContents) {
         yearlist = JSON.parse(fileContents);
-        if (yearlist[yearlist.length - 1].substring(4, 8) == new Date().getFullYear() + 543) {
-            year = new Date().getFullYear() + 543;
+        if (yearlist.length === 0) {
+            // Skip processing if file contains empty array
         } else {
-            //year = yearlist[yearlist.length - 1].substring(4, 8)
-            if(yearlist[0].substring(4, 8) != 2533){
-                year = 2533;
-            }else{
-                year = new Date().getFullYear() + 543-1;
+            if (yearlist[yearlist.length - 1].substring(4, 8) == new Date().getFullYear() + 543) {
+                year = new Date().getFullYear() + 543;
+            } else {
+                //year = yearlist[yearlist.length - 1].substring(4, 8)
+                if(yearlist[0].substring(4, 8) != 2533){
+                    year = 2533;
+                }else{
+                    year = new Date().getFullYear() + 543-1;
+                }
+                
             }
-            
+            yearlist.forEach(function (value, i) {
+                if (value.substring(4, 8) ==year) {
+                    countloveme--;
+                }
+            });
+            yearlist.splice(countloveme);
         }
-        yearlist.forEach(function (value, i) {
-            if (value.substring(4, 8) ==year) {
-                countloveme--;
-            }
-        });
-        yearlist.splice(countloveme);
     }
     let day
     while (year <= nextyear) {
