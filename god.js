@@ -110,7 +110,7 @@ async function get_request() {
             const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox', '--no-first-run', '--disable-extensions'] });
             const page = await browser.newPage();
             await page.goto('https://www.myhora.com/lottery/result-' + ayear + '.aspx', { waitUntil: 'networkidle2' });
-            await setTimeout(10000); // wait for 10 seconds
+            await setTimeout(50000); // wait for 10 seconds
             const content = await page.content();
             console.log(content)
             var $ = cheerio.load(content);
