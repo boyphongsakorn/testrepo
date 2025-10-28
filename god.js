@@ -26,7 +26,7 @@ async function get_request() {
     if (fileContents) {
         yearlist = JSON.parse(fileContents);
         if (yearlist.length === 0) {
-            // Skip processing if file contains empty array
+            year = 2533;
         } else {
             if (yearlist[yearlist.length - 1].substring(4, 8) == new Date().getFullYear() + 543) {
                 year = new Date().getFullYear() + 543;
