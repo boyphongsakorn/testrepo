@@ -1,4 +1,4 @@
-name: Main CI
+name: News CI
 
 # Controls when the workflow will run
 on:
