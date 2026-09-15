@@ -31,6 +31,7 @@ jobs:
           node-version: 18
       
       - run: npm install -g pnpm
+      - run: pnpm approve-builds puppeteer
       - run: pnpm install --no-frozen-lockfile
       #- run: npm test
       #- run: npm run index
